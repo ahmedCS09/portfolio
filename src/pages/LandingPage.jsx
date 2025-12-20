@@ -7,6 +7,7 @@ import Hero4 from '../components/Hero4'
 import Hero5 from '../components/Hero5'
 import Hero6 from '../components/Hero6'
 import Hero7 from '../components/Hero7'
+import Hero8 from '../components/Hero8'
 
 const Preloader = ({ onComplete }) => {
   const containerRef = useRef(null);
@@ -97,6 +98,7 @@ function LandingPage() {
         <Hero5 />
         <Hero6 />
         <Hero7 />
+        <Hero8 />
       </div>
     </div>
   )

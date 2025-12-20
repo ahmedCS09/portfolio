@@ -21,15 +21,16 @@ const Hero4 = () => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray(".panel").forEach((panel) => {
         gsap.fromTo(
-          panel.querySelector(".panel-img"),
-          { xPercent: -100 },
+          panel.querySelector(".panel-img-inner"), // Animate the image itself
+          { scale: 1.5, xPercent: -20 },
           {
+            scale: 1,
             xPercent: 0,
-            ease: "power4.out",
+            ease: "none",
             scrollTrigger: {
               trigger: panel,
-              start: "top 80%",
-              end: "top 30%",
+              start: "top bottom",
+              end: "bottom top",
               scrub: true,
             },
           }
@@ -41,30 +42,42 @@ const Hero4 = () => {
   }, []);
 
   return (
-    <section ref={section} className="bg-black text-white overflow-hidden">
+    <section ref={section} className="bg-black text-white py-20 overflow-hidden">
+
+      {/* Section Heading */}
+      <div className="px-10 md:px-32 mb-20">
+        <div className="flex items-center gap-4 mb-2">
+          <div className="w-12 h-[1px] bg-red-600"></div>
+          <span className="text-red-600 font-mono tracking-widest text-sm uppercase">Selected Works</span>
+        </div>
+        <h2 className="text-5xl md:text-7xl font-black tracking-tighter">MY PROJECTS</h2>
+      </div>
+
       {projects.map((p) => (
         <div
           key={p.id}
-          className="panel relative min-h-screen flex items-center border-b border-white/10"
+          className="panel relative min-h-[80vh] flex flex-col md:flex-row items-center border-b border-white/5 px-10 md:px-32 py-20"
         >
-          {/* Image */}
-          <div className="panel-img absolute inset-0 z-0">
-            <img
-              src={p.img}
-              alt={p.title}
-              className="w-full h-full object-cover opacity-30"
-            />
+          {/* Smaller, Controlled Image Container */}
+          <div className="relative w-full md:w-[45vw] h-[40vh] md:h-[60vh] overflow-hidden rounded-sm bg-neutral-900 group">
+            <div className="panel-img-inner w-full h-full">
+              <img
+                src={p.img}
+                alt={p.title}
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+              />
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 px-10 md:px-32 max-w-7xl">
-            <p className="text-red-600 font-mono tracking-widest mb-6">
+          {/* Content Overlap / Side */}
+          <div className="relative z-10 mt-10 md:mt-0 md:ml-[-5vw] pointer-events-none">
+            <p className="text-red-600 font-mono tracking-[0.5em] mb-4 text-xl">
               {p.id}
             </p>
-            <h1 className="text-6xl md:text-9xl font-extrabold leading-none">
+            <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tighter uppercase">
               {p.title}
             </h1>
-            <p className="mt-6 text-neutral-400 uppercase tracking-[0.3em]">
+            <p className="mt-4 text-neutral-500 font-medium uppercase tracking-[0.2em] text-xs">
               {p.tech}
             </p>
           </div>

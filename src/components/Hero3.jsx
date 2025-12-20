@@ -36,7 +36,7 @@ const Hero3 = () => {
                 <aside className="lg:sticky lg:top-24 h-fit">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-[1px] bg-red-600"></div>
-                        <h2 className="text-xs tracking-[0.4em] font-bold text-red-600 uppercase">Expertise</h2>
+                        <h2 className="text-xs tracking-[0.4em] font-bold text-red-600 uppercase">My Skills</h2>
                     </div>
                     <h3 className="text-4xl md:text-5xl font-black leading-none uppercase tracking-tighter">
                         Technical <br /> <span className="text-neutral-600">Arsenal</span>
