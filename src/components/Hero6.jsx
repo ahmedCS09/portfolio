@@ -36,19 +36,25 @@ const Hero6 = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Staggered reveal for each education row
+      // Animate education cards
       gsap.from(".edu-card", {
         y: 40,
         opacity: 0,
         stagger: 0.15,
         duration: 1.2,
         ease: "power4.out",
+        immediateRender: false, // prevents hiding before layout
         scrollTrigger: {
           trigger: componentRef.current,
           start: "top 85%",
-        }
+          toggleActions: "play none none none", // play only once
+        },
       });
     }, componentRef);
+
+    // Refresh ScrollTrigger positions in case page is refreshed mid-scroll
+    ScrollTrigger.refresh();
+
     return () => ctx.revert();
   }, []);
 
