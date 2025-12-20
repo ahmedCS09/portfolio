@@ -85,7 +85,7 @@ const Hero7 = () => {
                     </div>
 
                     <a href="#projects" className="group relative bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase overflow-hidden transition-all inline-block">
-                        <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
+                        <a href="#projects"><span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span></a>
                         <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
                     </a>
                 </div>

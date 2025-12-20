@@ -42,7 +42,7 @@ const Hero4 = () => {
   }, []);
 
   return (
-    <section ref={section} className="bg-black text-white py-20 overflow-hidden">
+    <section id="projects" ref={section} className="bg-black text-white py-20 overflow-hidden">
 
       {/* Section Heading */}
       <div className="px-10 md:px-32 mb-20">
