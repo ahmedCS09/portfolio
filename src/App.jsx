@@ -1,4 +1,3 @@
-
 import LandingPage from './pages/LandingPage'
 import { Routes, Route } from 'react-router'
 

@@ -1,109 +1,96 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ciscoCert from '../assets/cisco.png';
-import courseraCert from '../assets/coursera.jpg';
-import aptechCert from '../assets/aptech.jpg';
-import cisco from '../assets/cisco1.jpg';
-import coursera from '../assets/coursera1.png';
-import aptech from '../assets/aptech1.jpg';
+import React from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+const experienceData = [
+  {
+    period: "2025 — 2026",
+    role: "Machine Learning Intern",
+    company: "LA Consulting Corporation",
+    description: [
+      "Currently working as a Machine Learning Intern under the guidance of senior professionals.",
+      "Learning core machine learning concepts, model development, and real-world problem solving.",
+      "Gaining hands-on experience in data preprocessing, model evaluation, and ML workflows.",
+      "Collaborating with team members to strengthen technical and analytical skills."
+    ],
+    tags: ["Machine Learning", "Data Preprocessing", "Model Evaluation", "Team Collaboration"]
+  },
+  {
+    period: "Academic & Remote",
+    role: "Web Development Practice",
+    company: "Remote / Semester Projects",
+    description: [
+      "Gained practical experience in web development through remote practice and academic projects.",
+      "Developed responsive and functional web applications using modern frontend technologies.",
+      "Worked on semester projects including Library Management System, Code Detector, and Traffic Sign Detector.",
+      "Improved problem-solving, debugging, and project development skills."
+    ],
+    tags: ["Web Development", "Semester Projects", "Problem Solving", "Frontend"]
+  }
+];
 
 const Hero5 = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const containerRef = useRef(null);
-    const gridRef = useRef(null);
+  return (
+    <section className="bg-black text-white py-32 px-6 md:px-[4vw]">
+      <div className="max-w-7xl mx-auto">
 
-    const certDisplay = [
-        { url: ciscoCert },
-        { url: courseraCert },
-        { url: aptechCert }
-    ];
-    const cert = [
-        { url: cisco },
-        { url: coursera },
-        { url: aptech }
-    ];
-
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(gridRef.current, {
-                y: 50,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: gridRef.current,
-                    start: "top 85%",
-                }
-            });
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, []);
-
-    return (
-        <div ref={containerRef} className='parentMost min-h-screen w-full flex flex-col justify-center gap-10 items-center bg-black py-20 px-6'>
-            {/* Sidebar-style Header */}
-            <aside className="w-[90%] self-center flex items-center gap-3">
-                <div className="w-8 h-[1px] bg-red-600"></div>
-                <h2 className="text-xs tracking-[0.4em] font-bold text-red-600 uppercase">My Certifications</h2>
-            </aside>
-
-            {/* Grid Container */}
-            <div
-                ref={gridRef}
-                className='relative w-[90%] grid grid-cols-1 sm:grid-cols-3 h-[60vh] rounded-3xl overflow-hidden border border-white/10'
-                onMouseLeave={() => setHoveredIndex(null)}
-            >
-                {cert.map((certificate, index) => (
-                    <div
-                        key={index}
-                        className="relative h-full w-full overflow-hidden group border-r border-white/5 last:border-r-0 cursor-crosshair"
-                        onMouseEnter={() => setHoveredIndex(index)}
-                    >
-                        {/* Layer 1: Thumbnail Image */}
-                        <img
-                            className='absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 grayscale group-hover:grayscale-0'
-                            src={certificate.url}
-                            alt="Certificate Thumbnail"
-                        />
-
-                        {/* Layer 2: Detail Overlay (on top of thumbnail) */}
-                        <div className="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                        <img
-                            className='absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-105'
-                            src={certDisplay[index].url}
-                            alt="Certificate Detail"
-                        />
-
-                        {/* Visual indicator for "Zoom" */}
-                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <span className="text-[10px] tracking-widest uppercase font-bold text-white bg-black/50 px-3 py-1 rounded-full border border-white/20">View Large</span>
-                        </div>
-                    </div>
-                ))}
-
-                {/* Layer 3: Expanding Full-Screen Overlay */}
-                <div
-                    className={`absolute inset-0 flex justify-center items-center bg-black/95 z-50 pointer-events-none transition-all duration-500 ease-in-out ${hoveredIndex !== null ? 'opacity-100 backdrop-blur-xl' : 'opacity-0'}`}
-                >
-                    {hoveredIndex !== null && (
-                        <div className="relative w-full h-full flex items-center justify-center p-10">
-                            <img
-                                src={certDisplay[hoveredIndex].url}
-                                className="max-h-full max-w-full object-contain shadow-2xl transition-transform duration-500 scale-95"
-                                style={{ transform: hoveredIndex !== null ? 'scale(1)' : 'scale(0.9)' }}
-                                alt="Expanded Certificate"
-                            />
-                        </div>
-                    )}
-                </div>
-            </div>
+        {/* Section Header */}
+        <div className="mb-24">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-16 h-[1px] bg-red-600"></div>
+            <span className="text-red-600 font-mono tracking-[0.5em] text-xs uppercase font-bold">
+              MY Experience
+            </span>
+          </div>
+          <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none">
+            Work <br /> Journey
+          </h2>
         </div>
-    );
+
+        {/* Experience Cards */}
+        <div className="flex flex-col">
+          {experienceData.map((exp, index) => (
+            <div
+              key={index}
+              className="group relative grid grid-cols-1 lg:grid-cols-[1fr_2fr] py-16 border-t border-white/10 hover:bg-white/[0.01] transition-all duration-500"
+            >
+              {/* Period */}
+              <div className="text-neutral-600 font-mono text-lg mb-6 lg:mb-0 group-hover:text-red-600 transition-colors">
+                {exp.period}
+              </div>
+
+              {/* Content */}
+              <div className="pr-8">
+                <h3 className="text-3xl md:text-5xl font-bold uppercase mb-2 tracking-tighter">
+                  {exp.role}
+                </h3>
+                <p className="text-red-600 font-bold mb-6 uppercase tracking-widest text-sm">
+                  {exp.company}
+                </p>
+
+                <ul className="space-y-3 text-neutral-400 text-lg leading-relaxed">
+                  {exp.description.map((point, i) => (
+                    <li key={i}>• {point}</li>
+                  ))}
+                </ul>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-8">
+                  {exp.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-4 py-1.5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-neutral-500 font-bold group-hover:border-red-600 group-hover:text-white transition-all"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
-export default Hero5;
+export default Hero5

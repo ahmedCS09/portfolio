@@ -1,97 +1,129 @@
-import React, { useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { lineBase } from '../utils/lineBase';
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const educationData = [
+  {
+    period: "2023 — Present",
+    institution: "Dawood University of Engineering & Technology",
+    degree: "Bachelors in Computer Science (3rd Year)",
+    details: "Focusing on core engineering principles, system architecture, and advanced computing.",
+    metric: "3.13 CGPA",
+    courses: ["Data Structures", "Database Systems", "Operating Systems", "COAL", "Artificial Intelligence"]
+  },
+  {
+    period: "2021 — 2023",
+    institution: "Govt Degree College Malir Cantt",
+    degree: "Intermediate in Pre-Engineering",
+    details: "Focused on advanced Mathematics, Physics, and analytical problem solving.",
+    metric: "Grade A-1",
+    courses: []
+  },
+  {
+    period: "2019 — 2021",
+    institution: "Greenland Grammar School",
+    degree: "Matriculation (Science)",
+    details: "Foundational secondary education with a distinction in science subjects.",
+    metric: "91.3% Score",
+    courses: []
+  }
+];
+
 const Hero7 = () => {
-    const sectionRef = useRef(null);
-    const textRef = useRef(null);
+  const componentRef = useRef(null);
 
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(textRef.current, {
-                y: 50,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: textRef.current,
-                    start: "top 80%",
-                }
-            });
-        }, sectionRef);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate education cards
+      gsap.from(".edu-card", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 1.2,
+        ease: "power4.out",
+        immediateRender: false, // prevents hiding before layout
+        scrollTrigger: {
+          trigger: componentRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none", // play only once
+        },
+      });
+    }, componentRef);
 
-        return () => ctx.revert();
-    }, []);
+    // Refresh ScrollTrigger positions in case page is refreshed mid-scroll
+    ScrollTrigger.refresh();
 
-    return (
-        <div ref={sectionRef} className="w-screen flex items-center justify-center min-h-screen bg-black py-6 font-sans selection:bg-red-500">
-            {/* Main Container */}
-            <div className="relative w-[95%] max-w-[1400px] h-auto bg-[rgb(34,34,32)] rounded-[40px] p-8 md:p-20 text-white overflow-hidden flex flex-col justify-between border border-white/5 shadow-2xl">
+    return () => ctx.revert();
+  }, []);
 
-                {/* Top Section */}
-                <div className="flex justify-between items-start uppercase">
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                            <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
-                            <span className="text-sm font-bold tracking-[0.3em] text-red-600">Open to Work & Collaborate</span>
-                        </div>
-                        <span className="text-base font-medium opacity-50">Full-Stack Developer / 2025</span>
-                    </div>
-                    <div className="hidden md:block text-right opacity-30 text-sm tracking-widest font-medium">
-                        BASED IN <br /> KARACHI, PK
-                    </div>
-                </div>
-
-                {/* Massive Typography Content */}
-                <div className="flex flex-col items-end text-right w-full mt-20 mb-20">
-                    <h1 ref={textRef} className="font-black" style={{ fontSize: 'clamp(2.2rem, 8vw, 6.5rem)' }}>
-                        <span className={`${lineBase} pr-[10%] text-neutral-400`}>
-                            I build scalable
-                        </span>
-                        <span className={`${lineBase} pr-0`}>
-                            digital products
-                        </span>
-                        <span className={`${lineBase} pr-[18%] text-neutral-500`}>
-                            from logic
-                        </span>
-                        <span className={`${lineBase} pr-[4%] text-red-600`}>
-                            to interface
-                        </span>
-                        <span className={`${lineBase} pr-[22%] text-neutral-400`}>
-                            optimized code
-                        </span>
-                        <span className={`${lineBase} pr-0`}>
-                            high performance
-                        </span>
-                        <span className={`${lineBase} pr-[12%] opacity-20`}>
-                            & clean systems
-                        </span>
-                    </h1>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mt-12 border-t border-white/10 pt-8 gap-6">
-                    <div className="flex flex-col gap-2">
-                        <div className="text-[10px] uppercase tracking-[0.4em] text-red-600 font-bold">Tech Stack</div>
-                        <div className="text-xs md:text-sm font-mono opacity-40 uppercase tracking-[0.15em]">
-                            MongoDB • Express • React • Node • ML
-                        </div>
-                    </div>
-
-                    <a href="#projects" className="group relative bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase overflow-hidden transition-all inline-block">
-                        <a href="#projects"><span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span></a>
-                        <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-                    </a>
-                </div>
-            </div>
+  return (
+    <section ref={componentRef} className="bg-black text-white py-32 px-6 md:px-[4vw]">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="mb-24">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-16 h-[1px] bg-red-600"></div>
+            <span className="text-red-600 font-mono tracking-[0.5em] text-xs uppercase font-bold">My Education</span>
+          </div>
+          <h2 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none">
+            Learning <br /> History
+          </h2>
         </div>
-    );
+
+        {/* Education Rows */}
+        <div className="flex flex-col">
+          {educationData.map((edu, index) => (
+            <div 
+              key={index} 
+              className="edu-card group relative grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] py-16 border-t border-white/10 hover:bg-white/[0.01] transition-all duration-500"
+            >
+              {/* Year/Period */}
+              <div className="text-neutral-600 font-mono text-lg mb-4 lg:mb-0 group-hover:text-red-600 transition-colors">
+                {edu.period}
+              </div>
+
+              {/* Institution & Degree */}
+              <div className="pr-8">
+                <h3 className="text-3xl md:text-5xl font-bold uppercase mb-3 tracking-tighter group-hover:pl-4 transition-all duration-500 italic group-hover:not-italic">
+                  {edu.institution}
+                </h3>
+                <p className="text-neutral-400 text-lg mb-6 leading-relaxed">
+                   <span className="text-white font-bold">{edu.degree}</span>. {edu.details}
+                </p>
+
+                {/* Coursework Tags */}
+                {edu.courses.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {edu.courses.map((course, i) => (
+                      <span 
+                        key={i} 
+                        className="px-4 py-1.5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-neutral-500 font-bold group-hover:border-red-600 group-hover:text-white transition-all"
+                      >
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Key Metric (CGPA / Percentage) */}
+              <div className="mt-8 lg:mt-0 lg:text-right flex flex-col justify-start">
+                 <span className="text-4xl md:text-6xl font-black text-red-600 tracking-tighter leading-none">
+                    {edu.metric.split(' ')[0]}
+                 </span>
+                 <span className="text-xs uppercase tracking-widest text-neutral-500 font-bold mt-2">
+                    {edu.metric.split(' ')[1]}
+                 </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero7;
