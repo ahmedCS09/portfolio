@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,8 +10,8 @@ const Hero3 = () => {
 
     useEffect(() => {
         const cards = gridRef.current.querySelectorAll('.bento-card');
-        
-        gsap.fromTo(cards, 
+
+        gsap.fromTo(cards,
             { opacity: 0, y: 50, scale: 0.95 },
             {
                 opacity: 1,
@@ -31,7 +31,7 @@ const Hero3 = () => {
     return (
         <section ref={sectionRef} id="expertise" className="bg-black text-white py-24 px-[4vw] border-t border-white/5 selection:bg-red-600">
             <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12">
-                
+
                 {/* Sidebar Header */}
                 <aside className="lg:sticky lg:top-24 h-fit">
                     <div className="flex items-center gap-3 mb-4">
@@ -45,7 +45,7 @@ const Hero3 = () => {
 
                 {/* Bento Grid */}
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 auto-rows-[220px] gap-4">
-                    
+
                     {/* Fullstack - Large Card */}
                     <div className="bento-card md:col-span-2 md:row-span-2 bg-[#111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between group hover:border-red-600/50 transition-all duration-500 relative overflow-hidden">
                         <div className="absolute -right-10 -top-10 w-40 h-40 bg-red-600/10 blur-[80px] group-hover:bg-red-600/20 transition-all"></div>
@@ -91,21 +91,21 @@ const Hero3 = () => {
 
                     {/* AI/ML Card */}
                     {/* AI/ML & Computer Vision Card */}
-<div className="bento-card bg-[#111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between relative overflow-hidden group">
-    <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-    <div>
-        <span className="text-[10px] tracking-[0.3em] text-neutral-500 uppercase font-bold">Intelligence</span>
-        <h4 className="text-2xl font-black uppercase tracking-tighter mt-2">
-            ML & <br /> Computer Vision
-        </h4>
-    </div>
-    <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
-        <span className="text-[10px] font-mono text-red-600 font-bold uppercase tracking-widest">
-            Ongoing Research & Development
-        </span>
-    </div>
-</div>
+                    <div className="bento-card bg-[#111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div>
+                            <span className="text-[10px] tracking-[0.3em] text-neutral-500 uppercase font-bold">Intelligence</span>
+                            <h4 className="text-2xl font-black uppercase tracking-tighter mt-2">
+                                ML & <br /> Computer Vision
+                            </h4>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+                            <span className="text-[10px] font-mono text-red-600 font-bold uppercase tracking-widest">
+                                Ongoing Research & Development
+                            </span>
+                        </div>
+                    </div>
 
                 </div>
             </div>
