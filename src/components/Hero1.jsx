@@ -51,6 +51,17 @@ function Hero1({ startAnimation = true }) {
           <p className='text-[10px] md:text-lg font-mono text-neutral-500 uppercase tracking-[0.2em] md:tracking-widest text-center md:text-right mt-2'>
             MERN Specialist & ML Enthusiast
           </p>
+          
+          <a 
+            href="https://www.canva.com/design/DAG3rDhttBY/suGubyx4BOlkcOEasLO2lA/view?utm_content=DAG3rDhttBY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h499396132d"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative mt-6 px-8 py-3 bg-red-600 hover:bg-white text-white hover:text-red-600 font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
+          >
+            <span className="relative z-10 transition-colors">Download Resume</span>
+            <svg className="relative z-10 transition-transform group-hover:translate-x-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+          </a>
         </div>
 
         {/* Image - Bottom Aligned (Order 2) */}
