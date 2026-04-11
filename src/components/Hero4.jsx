@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   { id: "01", title: "Real-time Chat App", tech: "Next.js / Socket.io / MongoDB", img: proj1, link: "https://chat-app-iota-seven-99.vercel.app/" },
-  { id: "02", title: "Code Detector", tech: "NLP / Python", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200" },
+  { id: "02", title: "Code Detector", tech: "NLP / Python", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200", link: "https://code-detector.onrender.com/" },
   { id: "03", title: "Traffic Vision", tech: "Computer Vision", img: proj2 },
   { id: "04", title: "Karve Gym", tech: "React / MongoDB", img: proj3, link: "https://react-thirdd.netlify.app/" },
   { id: "05", title: "Safety Objects Detection", tech: "Computer Vision / Python", img: proj4 },
