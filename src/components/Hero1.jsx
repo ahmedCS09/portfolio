@@ -32,10 +32,10 @@ function Hero1({ startAnimation = true }) {
           <div className="flex items-center gap-3 mb-1 md:mb-2">
             <span className="w-6 md:w-8 h-[1px] bg-red-600"></span>
             <span className="text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] font-bold text-red-600 uppercase">
-              Full Stack Web Developer
+              Full Stack Developer
             </span>
           </div>
-          
+
           <h1 className='text-[12vw] sm:text-6xl md:text-7xl lg:text-9xl font-black text-center md:text-right uppercase leading-[0.8] tracking-tighter' ref={textRef}>
             {text.split(" ").map((word, wIdx) => (
               <span key={wIdx} className='inline-block whitespace-nowrap'>
@@ -49,11 +49,11 @@ function Hero1({ startAnimation = true }) {
           </h1>
 
           <p className='text-[10px] md:text-lg font-mono text-neutral-500 uppercase tracking-[0.2em] md:tracking-widest text-center md:text-right mt-2'>
-            MERN Specialist & ML Enthusiast
+            MERN Specialist & Exploring React Native
           </p>
-          
-          <a 
-            href="https://www.canva.com/design/DAG3rDhttBY/suGubyx4BOlkcOEasLO2lA/view?utm_content=DAG3rDhttBY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h499396132d"
+
+          <a
+            href="https://canva.link/8dhhp2p6mx3cme0"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative mt-6 px-8 py-3 bg-red-600 hover:bg-white text-white hover:text-red-600 font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
@@ -66,11 +66,11 @@ function Hero1({ startAnimation = true }) {
 
         {/* Image - Bottom Aligned (Order 2) */}
         <div className='flex w-full md:w-1/2 h-[35vh] md:h-full justify-center md:justify-start items-end self-end order-2 md:order-1 mt-auto'>
-          <img 
-            src={myDP} 
-            className='h-full w-auto object-contain transition-transform duration-500 hover:scale-105 filter grayscale hover:grayscale-0' 
-            style={{ display: 'block' }} 
-            alt="Ahmed Musab" 
+          <img
+            src={myDP}
+            className='h-full w-auto object-contain transition-transform duration-500 hover:scale-105 filter grayscale hover:grayscale-0'
+            style={{ display: 'block' }}
+            alt="Ahmed Musab"
           />
         </div>
 

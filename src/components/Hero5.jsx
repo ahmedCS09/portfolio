@@ -2,28 +2,28 @@ import React from "react";
 
 const experienceData = [
   {
-    period: "2025 — 2026",
-    role: "Machine Learning Intern",
+    period: "Nov, 2023 — May, 2026",
+    role: "ML Engineer",
     company: "LA Consulting Corporation",
     description: [
-      "Currently working as a Machine Learning Intern under the guidance of senior professionals.",
-      "Learning core machine learning concepts, model development, and real-world problem solving.",
-      "Gaining hands-on experience in data preprocessing, model evaluation, and ML workflows.",
-      "Collaborating with team members to strengthen technical and analytical skills."
+      "Worked on developing machine learning models to solve real-world problems.",
+      "Learned core machine learning concepts, model development, and real-world problem solving.",
+      "Gained hands-on experience in data preprocessing, model evaluation, and ML workflows.",
+      "Collaborated with team members to strengthen technical and analytical skills."
     ],
     tags: ["Machine Learning", "Data Preprocessing", "Model Evaluation", "Team Collaboration"]
   },
   {
-    period: "Academic & Remote",
-    role: "Web Development Practice",
-    company: "Remote / Semester Projects",
+    period: "May, 2026 - Present",
+    role: "React Native Developer",
+    company: "Foxit Private Limited",
     description: [
-      "Gained practical experience in web development through remote practice and academic projects.",
-      "Developed responsive and functional web applications using modern frontend technologies.",
-      "Worked on semester projects including Library Management System, Code Detector, and Traffic Sign Detector.",
-      "Improved problem-solving, debugging, and project development skills."
+      "Currently working on developing Android mobile applications using React Native.",
+      "Collaborating with a team of developers to build and maintain high-quality mobile applications.",
+      "Working on enhancing the user interface and user experience of the application.",
+      "Participating in code reviews and providing constructive feedback to team members."
     ],
-    tags: ["Web Development", "Semester Projects", "Problem Solving", "Frontend"]
+    tags: ["React Native", "Cross Platform Development", "Mobile Applications", "Team Collaboration"]
   }
 ];
 

@@ -55,7 +55,7 @@ const Hero3 = () => {
                         </div>
                         {/* Added MongoDB and MySQL explicitly here */}
                         <div className="flex flex-wrap gap-2 z-10">
-                            {['React.js', 'Next.js', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'Zustand', 'TanStack'].map(tag => (
+                            {['React.js', 'Next.js', 'Node.js', 'Express', 'React Native', 'MongoDB', 'MySQL', 'Zustand', 'TanStack'].map(tag => (
                                 <span key={tag} className={`px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-medium transition-colors ${tag === 'MongoDB' || tag === 'MySQL' ? 'text-red-500 border-red-900/30' : 'text-neutral-400 group-hover:text-white'}`}>
                                     {tag}
                                 </span>
